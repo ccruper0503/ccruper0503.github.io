@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christian</title>
+  <style>
+    :root {
+      --color-principal: #2563eb;
+      --color-fondo: #f5f8ff;
+      --color-texto: #1e293b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+      text-align: center;
+      background: var(--color-fondo);
+      color: var(--color-texto);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 8vw, 4.5rem);
+      font-weight: 700;
+      color: var(--color-principal);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: clamp(1rem, 3.5vw, 1.35rem);
+      color: #475569;
+      margin-bottom: 2rem;
+      max-width: 40ch;
+    }
+
+    a {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 999px;
+      background: var(--color-principal);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    a:hover, a:focus {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Christian</h1>
+  <p>Desarrollador web</p>
+  <a href="https://github.com/ccruper0503" target="_blank" rel="noopener">github.com/ccruper0503</a>
+</body>
+</html>
