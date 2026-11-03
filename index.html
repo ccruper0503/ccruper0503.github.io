@@ -3,12 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christian</title>
+  <title>Mundo Jirafa | Los Gigantes de la Sabana</title>
+  <meta name="description" content="Descubre todo sobre las jirafas: curiosidades, anatomía, hábitat, especies y datos asombrosos del mamífero más alto de la Tierra.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --color-principal: #2563eb;
-      --color-fondo: #f5f8ff;
-      --color-texto: #1e293b;
+      --primary: #d97706;
+      --primary-hover: #b45309;
+      --primary-light: #fef3c7;
+      --accent: #f59e0b;
+      --dark: #1f1f1a;
+      --dark-card: #2a2a22;
+      --text-muted: #6b7280;
+      --bg-light: #fafaf7;
+      --card-bg: #ffffff;
+      --border-color: #f3f4f6;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --radius: 16px;
     }
 
     * {
@@ -17,60 +31,772 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--dark);
+      background-color: var(--bg-light);
     }
 
     body {
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navegación */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(250, 250, 247, 0.92);
+      border-bottom: 1px solid rgba(217, 119, 6, 0.15);
+      padding: 1rem 1.5rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4b5563;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 1.5rem;
-      text-align: center;
-      background: var(--color-fondo);
-      color: var(--color-texto);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.5;
-    }
-
-    h1 {
-      font-size: clamp(2.25rem, 8vw, 4.5rem);
-      font-weight: 700;
-      color: var(--color-principal);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-    }
-
-    p {
-      font-size: clamp(1rem, 3.5vw, 1.35rem);
-      color: #475569;
-      margin-bottom: 2rem;
-      max-width: 40ch;
-    }
-
-    a {
-      display: inline-block;
-      padding: 0.75rem 1.75rem;
-      border-radius: 999px;
-      background: var(--color-principal);
+      background: linear-gradient(135deg, rgba(31, 31, 26, 0.85) 0%, rgba(120, 53, 15, 0.75) 100%),
+                  url('https://images.unsplash.com/photo-1547721064-da6cfb341d50?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
-      transition: transform 0.15s ease, opacity 0.15s ease;
+      text-align: center;
+      padding: 4rem 1.5rem 6rem;
     }
 
-    a:hover, a:focus {
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.25);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      backdrop-filter: blur(8px);
+      color: #fde68a;
+      padding: 0.4rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      color: #fbbf24;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: #e5e7eb;
+      margin-bottom: 2.2rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 10px 20px -5px rgba(217, 119, 6, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
       transform: translateY(-2px);
-      opacity: 0.9;
+      box-shadow: 0 15px 25px -5px rgba(217, 119, 6, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Stats Banner */
+    .stats-container {
+      max-width: 1100px;
+      margin: -3.5rem auto 4rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 2rem;
+      border: 1px solid rgba(217, 119, 6, 0.1);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0.5rem;
+      border-right: 1px solid #f3f4f6;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 4.5rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+    }
+
+    .section-description {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0.75rem auto 0;
+      font-size: 1.05rem;
+    }
+
+    /* Grid Cards */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(217, 119, 6, 0.2);
+    }
+
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      background: var(--primary-light);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .feature-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+
+    .feature-card p {
+      color: #4b5563;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    /* Interactive Curiosity Card */
+    .curiosity-box {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 2px dashed #f59e0b;
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .curiosity-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #78350f;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: opacity 0.25s ease;
+    }
+
+    /* Especies Section */
+    .species-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .species-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #f3f4f6;
+      transition: transform 0.2s;
+    }
+
+    .species-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .species-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .species-body {
+      padding: 1.5rem;
+    }
+
+    .species-scientific {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .species-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .species-body p {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    /* Interactive Trivia Section */
+    .trivia-container {
+      background: #ffffff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 2.5rem;
+      max-width: 750px;
+      margin: 0 auto;
+      border: 1px solid rgba(217, 119, 6, 0.15);
+    }
+
+    .question-card {
+      margin-bottom: 1.8rem;
+    }
+
+    .question-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .opt-btn {
+      text-align: left;
+      padding: 0.8rem 1.2rem;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      background: #fef3c7;
+      border-color: #f59e0b;
+    }
+
+    .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #166534;
+      font-weight: 700;
+    }
+
+    .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b;
+    }
+
+    .feedback-msg {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      min-height: 1.4rem;
+      font-weight: 600;
+    }
+
+    /* Conservation Callout */
+    .callout {
+      background: linear-gradient(135deg, #1f1f1a 0%, #2f2a1b 100%);
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .callout h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fbbf24;
+      margin-bottom: 1rem;
+    }
+
+    .callout p {
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+      color: #d1d5db;
+      font-size: 1.05rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer a {
+      color: #fbbf24;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid #f3f4f6;
+        padding-bottom: 1rem;
+      }
+      .stat-item:last-child {
+        border-bottom: none;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Christian</h1>
-  <p>Desarrollador web</p>
-  <a href="https://github.com/ccruper0503" target="_blank" rel="noopener">github.com/ccruper0503</a>
+
+  <!-- Navegación -->
+  <nav class="navbar">
+    <a href="#" class="brand">
+      🦒 <span>Mundo</span>Jirafa
+    </a>
+    <ul class="nav-links">
+      <li><a href="#anatomia">Anatomía</a></li>
+      <li><a href="#especies">Especies</a></li>
+      <li><a href="#curiosidades">Curiosidades</a></li>
+      <li><a href="#trivia">Trivia</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Principal -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge">🌿 El rey de las alturas</span>
+      <h1>El Gigante Más Elegante <span>de la Sabana</span></h1>
+      <p>Explora la fascinante vida, adaptaciones biológicas únicas y misterios del mamífero terrestre más alto del planeta.</p>
+      <div class="hero-actions">
+        <a href="#curiosidades" class="btn btn-primary">Descubrir Curiosidades 🦒</a>
+        <a href="#trivia" class="btn btn-secondary">Probar la Trivia 🎯</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner de Estadísticas Rápidas -->
+  <div class="stats-container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">5.8 m</span>
+        <span class="stat-label">Altura Máxima</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1,900 kg</span>
+        <span class="stat-label">Peso Adulto</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">55 km/h</span>
+        <span class="stat-label">Velocidad en Carrera</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">50 cm</span>
+        <span class="stat-label">Longitud de Lengua</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anatomía y Adaptaciones -->
+  <section id="anatomia">
+    <div class="section-header">
+      <span class="section-tag">Evolución Asombrosa</span>
+      <h2 class="section-title">Ingeniería Natural Extraordinaria</h2>
+      <p class="section-description">Cada parte del cuerpo de la jirafa es un prodigio de la biomecánica adaptado para sobrevivir en las llanuras africanas.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="feature-icon">🦴</div>
+        <h3>Cuello con 7 Vértebras</h3>
+        <p>A pesar de medir más de 2 metros de longitud, su cuello tiene exactamente la misma cantidad de vértebras cervicales que el ser humano (7), solo que cada una puede medir hasta 28 centímetros.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💜</div>
+        <h3>Lengua Azul Prensil</h3>
+        <p>Su lengua alcanza los 50 cm y tiene una pigmentación oscura (melanina) que actúa como protector solar natural mientras arranca hojas de acacias repletas de espinas durante horas.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">❤️</div>
+        <h3>Corazón de Alta Presión</h3>
+        <p>Pesa unos 11 kilogramos y genera más del doble de la presión arterial humana para bombear sangre 2 metros hacia arriba hasta el cerebro sin provocar desmayos al agacharse a beber.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🐆</div>
+        <h3>Manchas como Huellas Dactilares</h3>
+        <p>El patrón geométrico de cada jirafa es 100% único e irrepetible. Además de camuflaje, debajo de cada mancha existe un sofisticado sistema de vasos sanguíneos que actúa como radiador térmico.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💤</div>
+        <h3>Micro-Siestas de Pie</h3>
+        <p>Para evitar a los depredadores, las jirafas adultas solo necesitan dormir entre 10 minutos y 2 horas al día, distribuidas en breves siestas de 5 minutos, generalmente de pie.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🦵</div>
+        <h3>Patada Letal</h3>
+        <p>Sus largas patas miden casi 2 metros. Una sola coz directa de una jirafa adulta posee la fuerza suficiente para fracturar el cráneo o las costillas de un león cazador.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Especies y Subespecies -->
+  <section id="especies">
+    <div class="section-header">
+      <span class="section-tag">Biodiversidad</span>
+      <h2 class="section-title">Variedades en África</h2>
+      <p class="section-description">Aunque comúnmente se hablaba de una sola especie, estudios genéticos recientes clasifican a las jirafas en linajes distintos.</p>
+    </div>
+
+    <div class="species-grid">
+      <div class="species-card">
+        <img class="species-img" src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=600&q=80" alt="Jirafa Reticulada">
+        <div class="species-body">
+          <span class="species-scientific">Giraffa camelopardalis reticulata</span>
+          <h3 class="species-title">Jirafa Reticulada</h3>
+          <p>Conocida por sus líneas blancas bien definidas y polígonos marrón rojizo intenso. Originaria de Kenia, Somalia y Etiopía.</p>
+        </div>
+      </div>
+
+      <div class="species-card">
+        <img class="species-img" src="https://images.unsplash.com/photo-1574870111867-089730e5a72b?auto=format&fit=crop&w=600&q=80" alt="Jirafa Masai">
+        <div class="species-body">
+          <span class="species-scientific">Giraffa tippelskirchi</span>
+          <h3 class="species-title">Jirafa Masai</h3>
+          <p>La más abundante y grande de todas. Sus manchas tienen bordes dentados e irregulares que recuerdan a hojas de roble.</p>
+        </div>
+      </div>
+
+      <div class="species-card">
+        <img class="species-img" src="https://images.unsplash.com/photo-1547721064-da6cfb341d50?auto=format&fit=crop&w=600&q=80" alt="Jirafa del Norte">
+        <div class="species-body">
+          <span class="species-scientific">Giraffa camelopardalis</span>
+          <h3 class="species-title">Jirafa Nubia / del Norte</h3>
+          <p>Posee manchas cuadrangulares de tono castaño y extremidades notablemente claras sin manchas por debajo de las rodillas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Generador de Curiosidades -->
+  <section id="curiosidades">
+    <div class="section-header">
+      <span class="section-tag">¿Sabías que...?</span>
+      <h2 class="section-title">Generador de Datos Curiosos</h2>
+      <p class="section-description">Haz clic para descubrir hechos increíbles y poco conocidos sobre el mundo de las jirafas.</p>
+    </div>
+
+    <div class="curiosity-box">
+      <div id="curiosityText" class="curiosity-text">
+        "Al nacer, una cría de jirafa cae desde casi dos metros de altura sin lastimarse, ¡y puede ponerse de pie en menos de una hora!"
+      </div>
+      <button class="btn btn-primary" onclick="nuevaCuriosidad()">🎲 Revelar Otro Dato Sorprendente</button>
+    </div>
+  </section>
+
+  <!-- Trivia Interactiva -->
+  <section id="trivia">
+    <div class="section-header">
+      <span class="section-tag">Desafío</span>
+      <h2 class="section-title">Mini-Quiz de Jirafas</h2>
+      <p class="section-description">Comprueba cuánto has aprendido con estas 3 preguntas rápidas.</p>
+    </div>
+
+    <div class="trivia-container">
+      <!-- Pregunta 1 -->
+      <div class="question-card" id="q1">
+        <h4 class="question-title">1. ¿Cuántas vértebras cervicales tiene el cuello de una jirafa?</h4>
+        <div class="options-list">
+          <button class="opt-btn" onclick="responder(1, 0, false)">A) 24 vértebras especializadas</button>
+          <button class="opt-btn" onclick="responder(1, 1, true)">B) 7 vértebras (igual que los humanos)</button>
+          <button class="opt-btn" onclick="responder(1, 2, false)">C) 14 vértebras alargadas</button>
+        </div>
+        <div class="feedback-msg" id="f1"></div>
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div class="question-card" id="q2">
+        <h4 class="question-title">2. ¿Por qué la lengua de la jirafa es de color azul oscuro / púrpura?</h4>
+        <div class="options-list">
+          <button class="opt-btn" onclick="responder(2, 0, true)">A) Tiene melanina para protegerse del sol</button>
+          <button class="opt-btn" onclick="responder(2, 1, false)">B) Para intimidar a los depredadores</button>
+          <button class="opt-btn" onclick="responder(2, 2, false)">C) Por los pigmentos de las hojas que mastica</button>
+        </div>
+        <div class="feedback-msg" id="f2"></div>
+      </div>
+
+      <!-- Pregunta 3 -->
+      <div class="question-card" id="q3">
+        <h4 class="question-title">3. ¿Cuánto tiempo suele dormir una jirafa adulta al día?</h4>
+        <div class="options-list">
+          <button class="opt-btn" onclick="responder(3, 0, false)">A) 8 a 10 horas corridas</button>
+          <button class="opt-btn" onclick="responder(3, 1, false)">B) No duerme nunca durante la adultez</button>
+          <button class="opt-btn" onclick="responder(3, 2, true)">C) Entre 10 minutos y 2 horas en siestas cortas</button>
+        </div>
+        <div class="feedback-msg" id="f3"></div>
+      </div>
+    </div>
+
+    <!-- Llamado a la conservación -->
+    <div class="callout">
+      <h2>Protejamos a la Jirafa</h2>
+      <p>En los últimos 30 años, las poblaciones de jirafas silvestres han disminuido casi un 30% debido a la fragmentación de su hábitat y la caza furtiva. Este fenómeno es conocido por los biólogos como la <strong>«extinción silenciosa»</strong>.</p>
+      <a href="https://giraffeconservation.org/" target="_blank" rel="noopener" class="btn btn-primary">Conocer Giraffe Conservation Foundation 🌍</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>🦒 <strong>Mundo Jirafa</strong> — Creado con pasión por la vida silvestre.</p>
+    <p>Proyecto para GitHub Pages | Repositorio: <a href="https://github.com/ccruper0503" target="_blank" rel="noopener">ccruper0503.github.io</a></p>
+  </footer>
+
+  <script>
+    // Banco de datos curiosos
+    const curiosidades = [
+      "Al nacer, una cría de jirafa cae desde casi dos metros de altura sin lastimarse, ¡y puede ponerse de pie en menos de una hora!",
+      "El nombre científico antiguo «Camelopardalis» proviene del griego y significa 'camello con manchas de leopardo'.",
+      "Las jirafas emiten sonidos de muy baja frecuencia (infrasonidos) imperceptibles para el oído humano para comunicarse en la noche.",
+      "Sus patas delanteras son un 10% más largas que sus patas traseras, dándoles su característica postura inclinada.",
+      "Una jirafa pasa entre 16 y 20 horas al día alimentándose, consumiendo hasta 45 kilos de follaje fresco.",
+      "Rara vez beben agua: obtienen casi toda la hidratación que necesitan del follaje y el rocío matinal de las hojas de acacia.",
+      "A pesar de su gran tamaño, pueden correr a velocidades de hasta 55-60 km/h en tramos cortos.",
+      "Las válvulas en las venas yugulares de su cuello evitan que el exceso de sangre inunde su cerebro cuando bajan la cabeza para beber."
+    ];
+
+    let indiceActual = 0;
+
+    function nuevaCuriosidad() {
+      const box = document.getElementById('curiosityText');
+      box.style.opacity = '0';
+      setTimeout(() => {
+        let nuevoIndice;
+        do {
+          nuevoIndice = Math.floor(Math.random() * curiosidades.length);
+        } while (nuevoIndice === indiceActual);
+        
+        indiceActual = nuevoIndice;
+        box.textContent = `"${curiosidades[indiceActual]}"`;
+        box.style.opacity = '1';
+      }, 250);
+    }
+
+    // Lógica del mini quiz
+    function responder(preguntaNum, opcionIdx, esCorrecta) {
+      const card = document.getElementById(`q${preguntaNum}`);
+      const botones = card.querySelectorAll('.opt-btn');
+      const feedback = document.getElementById(`f${preguntaNum}`);
+
+      botones.forEach(btn => btn.disabled = true);
+
+      if (esCorrecta) {
+        botones[opcionIdx].classList.add('correct');
+        feedback.textContent = '¡Correcto! Excelente conocimiento 🌟';
+        feedback.style.color = '#166534';
+      } else {
+        botones[opcionIdx].classList.add('wrong');
+        botones.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct');
+          }
+        });
+        feedback.textContent = 'Incorrecto. ¡Revisa la opción correcta marcada en verde!';
+        feedback.style.color = '#b91c1c';
+      }
+    }
+  </script>
 </body>
 </html>
